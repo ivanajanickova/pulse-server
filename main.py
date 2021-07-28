@@ -21,3 +21,6 @@ def test():
     else:
         return jsonify({'Status': 'Not recieved'})
 
+if __name__ == '__main__':
+    app.run(debug=True)
+
