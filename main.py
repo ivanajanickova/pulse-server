@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_restful import request
 import numpy as np
-
+import cv2
 
 app = Flask(__name__)
 
@@ -16,11 +16,12 @@ def byes_to_arr(byte_array):
 def test():
     image_bytes = request.data
     decoded = byes_to_arr(image_bytes)
+
     if decoded is not None:
         return jsonify({'Status': 'Working OK'})
     else:
         return jsonify({'Status': 'Not recieved'})
 
+
 if __name__ == '__main__':
     app.run(debug=True)
-
